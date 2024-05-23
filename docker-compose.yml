@@ -1,0 +1,75 @@
+version: "3.8"
+
+services:
+    express-app-1:
+        build: .
+        container_name: express-app-1
+        environment:
+            - PORT=3000
+            - NAME=Server1
+
+    express-app-2:
+        build: .
+        container_name: express-app-2
+        environment:
+            - PORT=3000
+            - NAME=Server2
+
+    express-app-3:
+        build: .
+        container_name: express-app-3
+        environment:
+            - PORT=3000
+            - NAME=Server3
+
+    express-app-4:
+        build: .
+        container_name: express-app-4
+        environment:
+            - PORT=3000
+            - NAME=Server4
+
+    express-app-5:
+        build: .
+        container_name: express-app-5
+        environment:
+            - PORT=3000
+            - NAME=Server5
+
+    express-app-6:
+        build: .
+        container_name: express-app-6
+        environment:
+            - PORT=3000
+            - NAME=Server6
+
+    express-app-7:
+        build: .
+        container_name: express-app-7
+        environment:
+            - PORT=3000
+            - NAME=Server7
+
+    express-app-8:
+        build: .
+        container_name: express-app-8
+        environment:
+            - PORT=3000
+            - NAME=Server8
+
+    nginx:
+        image: nginx:latest
+        container_name: nginx
+        ports:
+            - "80:80"
+        volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf
+        depends_on:
+            - express-app-1
+            - express-app-2
+            - express-app-3
+            - express-app-4
+            - express-app-5
+            - express-app-6
+            - express-app-7
+            - express-app-8
